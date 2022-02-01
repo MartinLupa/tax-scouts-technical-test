@@ -1,4 +1,5 @@
 import { createContext, useEffect, useState } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import styled from "styled-components";
 import "./App.css";
 import { Main } from "./components/Main";
@@ -12,6 +13,15 @@ const AppWrapper = styled.div`
 `;
 
 export const GlobalContext = createContext();
+
+function ErrorFallback({ error }) {
+  return (
+    <div role="alert">
+      <p>Something went wrong</p>
+      <pre style={{ color: "red" }}>{error.message}</pre>
+    </div>
+  );
+}
 
 function App() {
   const [bookList, setBookList] = useState();
@@ -35,18 +45,20 @@ function App() {
 
   return (
     <AppWrapper>
-      <GlobalContext.Provider
-        value={{
-          bookList,
-          searchQuery,
-          setSearchQuery,
-          currentBook,
-          setCurrentBook,
-        }}
-      >
-        <Navbar />
-        <Main />
-      </GlobalContext.Provider>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <GlobalContext.Provider
+          value={{
+            bookList,
+            searchQuery,
+            setSearchQuery,
+            currentBook,
+            setCurrentBook,
+          }}
+        >
+          <Navbar />
+          <Main />
+        </GlobalContext.Provider>
+      </ErrorBoundary>
     </AppWrapper>
   );
 }
