@@ -13,14 +13,6 @@ const StyledWrapper = styled.div`
 // "https://reststop.randomhouse.com/resources/authors?lastName=brown&firstName=dan"
 
 function App() {
-  useEffect(() => {
-    fetch("https://reststop.randomhouse.com/resources/titles?title=bible", {
-      method: "GET",
-      headers: { Accept: "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
   return (
     <StyledWrapper>
       <Navbar />
