@@ -5,7 +5,7 @@ import { GlobalContext } from "../App";
 const BookInfoWrapper = styled.div`
   display: flex;
   align-items: center;
-  cursor: pointer;
+
   background-color: white;
   border-bottom: 1px solid lightgrey;
   padding: 5px;
@@ -14,6 +14,7 @@ const BookInfoWrapper = styled.div`
   height: 100%;
 
   img {
+    cursor: pointer;
     margin-right: 5px;
     width: 60px;
     height: 60px;
@@ -38,8 +39,8 @@ export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
     setCurrentBook(selectedBook);
   };
   return (
-    <BookInfoWrapper onClick={() => handleBookDetail(isbn)}>
-      <img src={uri} alt="" />
+    <BookInfoWrapper>
+      <img onClick={() => handleBookDetail(isbn)} src={uri} alt="" />
       <div>
         <h4>{titleshort}</h4>
         <p>{author}</p>

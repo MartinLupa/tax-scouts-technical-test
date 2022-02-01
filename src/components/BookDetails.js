@@ -21,7 +21,6 @@ const BookDetailsWrapper = styled.div`
 export const BookDetails = () => {
   const { currentBook } = useContext(GlobalContext);
 
-  console.log(currentBook);
   return (
     <div>
       {currentBook.length === 1 ? (
@@ -58,7 +57,9 @@ export const BookDetails = () => {
           </div>
         </BookDetailsWrapper>
       ) : (
-        <h2>Search for a book</h2>
+        <BookDetailsWrapper>
+          <h2>Search for a book</h2>
+        </BookDetailsWrapper>
       )}
     </div>
   );
