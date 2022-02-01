@@ -28,13 +28,14 @@ const BookInfoWrapper = styled.div`
 `;
 
 export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
-  const { bookList } = useContext(GlobalContext);
+  const { bookList, setCurrentBook, setSearchQuery } =
+    useContext(GlobalContext);
   const [clickedIsbn, setClickedIsbn] = useState("");
 
   const handleBookDetail = (isbn) => {
     setClickedIsbn(isbn);
     const selectedBook = bookList.filter((book) => book.isbn === clickedIsbn);
-    console.log(selectedBook);
+    setCurrentBook(selectedBook);
   };
   return (
     <BookInfoWrapper onClick={() => handleBookDetail(isbn)}>

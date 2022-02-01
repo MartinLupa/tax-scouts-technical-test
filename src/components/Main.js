@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { BookDetails } from "./BookDetails";
 import { DropdownMenu } from "./DropdownMenu";
 
 const MainWrapper = styled.div`
@@ -14,6 +15,7 @@ export const Main = () => {
   return (
     <MainWrapper>
       <DropdownMenu />
+      <BookDetails />
     </MainWrapper>
   );
 };

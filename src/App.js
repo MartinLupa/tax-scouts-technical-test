@@ -5,6 +5,7 @@ import { Main } from "./components/Main";
 import { Navbar } from "./components/Navbar";
 
 const AppWrapper = styled.div`
+  font-family: "Mulish", sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
