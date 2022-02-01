@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { GlobalContext } from "../App";
 
 const StyledNavbar = styled.nav`
   background-color: #a6f2d3;
-  height: 80px;
+  height: 55px;
   display: flex;
   padding-right: 20px;
   align-items: center;
@@ -18,23 +19,11 @@ const StyledInput = styled.input`
 `;
 
 export const Navbar = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const { setSearchQuery } = useContext(GlobalContext);
 
   const handleSearchQuery = (e) => {
     setSearchQuery(e.target.value);
   };
-
-  useEffect(() => {
-    fetch(
-      `https://reststop.randomhouse.com/resources/titles?title=${searchQuery}`,
-      {
-        method: "GET",
-        headers: { Accept: "application/json" },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
 
   return (
     <StyledNavbar>
