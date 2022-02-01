@@ -29,8 +29,7 @@ const BookInfoWrapper = styled.div`
 `;
 
 export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
-  const { bookList, setCurrentBook, setSearchQuery } =
-    useContext(GlobalContext);
+  const { bookList, setCurrentBook } = useContext(GlobalContext);
   const [clickedIsbn, setClickedIsbn] = useState("");
 
   const handleBookDetail = (isbn) => {
@@ -40,7 +39,7 @@ export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
   };
   return (
     <BookInfoWrapper>
-      <img onClick={() => handleBookDetail(isbn)} src={uri} alt="" />
+      <img onClick={() => handleBookDetail(isbn)} src={uri} alt={uri} />
       <div>
         <h4>{titleshort}</h4>
         <p>{author}</p>

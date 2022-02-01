@@ -33,8 +33,6 @@ function App() {
       .then((data) => setBookList(data.title));
   }, [searchQuery]);
 
-  console.log(bookList);
-
   return (
     <AppWrapper>
       <GlobalContext.Provider

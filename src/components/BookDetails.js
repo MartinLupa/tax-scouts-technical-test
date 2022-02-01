@@ -19,40 +19,40 @@ const BookDetailsWrapper = styled.div`
 `;
 
 export const BookDetails = () => {
-  const { currentBook } = useContext(GlobalContext);
+  const currentBook = useContext(GlobalContext);
 
   return (
     <div>
       {currentBook.length === 1 ? (
         <BookDetailsWrapper>
-          <img src={currentBook[0]["@uri"]} alt="" />
+          <img src={currentBook["@uri"]} alt={currentBook?.titleshort} />
           <div>
-            <h2>{currentBook[0]?.titleshort}</h2>
+            <h2>{currentBook?.titleshort}</h2>
             <p>
-              <b>Author:</b> {currentBook[0]?.author}
+              <b>Author:</b> {currentBook?.author}
             </p>
             <p>
-              {currentBook[0]?.flapcopy
+              {currentBook?.flapcopy
                 .substring(0, 1000)
                 .replace(/(<([^>]+)>)/gi, "") + "..."}
             </p>
             <p>
-              <b>Format:</b> {currentBook[0]?.formatname}
+              <b>Format:</b> {currentBook?.formatname}
             </p>
             <p>
-              <b>Imprint:</b> {currentBook[0]?.imprint}
+              <b>Imprint:</b> {currentBook?.imprint}
             </p>
             <p>
-              <b>ISBN:</b> {currentBook[0]?.isbn}
+              <b>ISBN:</b> {currentBook?.isbn}
             </p>
             <p>
-              <b>Published:</b> {currentBook[0]?.onsaledate}
+              <b>Published:</b> {currentBook?.onsaledate}
             </p>
             <p>
-              <b>Length:</b> {currentBook[0]?.pages} Pages
+              <b>Length:</b> {currentBook?.pages} Pages
             </p>
             <p>
-              <b>Price:</b> EUR{currentBook[0]?.priceusa}
+              <b>Price:</b> EUR{currentBook?.priceusa}
             </p>
           </div>
         </BookDetailsWrapper>
