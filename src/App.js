@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import styled from "styled-components";
+import { Main } from "./components/Main";
+import { Navbar } from "./components/Navbar";
+
+const StyledWrapper = styled.div`
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: grey;
+`;
+
+// "https://reststop.randomhouse.com/resources/authors?lastName=brown&firstName=dan"
 
 function App() {
+  useEffect(() => {
+    fetch("https://reststop.randomhouse.com/resources/titles?title=bible", {
+      method: "GET",
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledWrapper>
+      <Navbar />
+      <Main />
+    </StyledWrapper>
   );
 }
 
