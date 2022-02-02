@@ -5,14 +5,10 @@ import { GlobalContext } from "../App";
 const BookInfoWrapper = styled.div`
   display: flex;
   align-items: center;
-
-  background-color: white;
-  border-bottom: 1px solid lightgrey;
-  padding: 5px;
+  border-bottom: 1px solid #faf8f5;
   font-size: 0.85rem;
   display: flex;
   height: 100%;
-
   img {
     cursor: pointer;
     margin-right: 5px;
@@ -25,6 +21,9 @@ const BookInfoWrapper = styled.div`
   h4 {
     margin-top: 0;
     margin-bottom: 2px;
+  }
+  &:hover {
+    background-color: #f0efed;
   }
 `;
 

@@ -2,6 +2,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useContext } from "react";
 import styled from "styled-components";
 import { GlobalContext } from "../App";
+import { DropdownMenu } from "../components/DropdownMenu";
 
 const StyledInputWithIcon = styled.div`
   padding: 10px;
@@ -32,13 +33,16 @@ export const SearchInput = ({ placeholder }) => {
   };
 
   return (
-    <StyledInputWithIcon>
-      <input
-        onChange={handleSearchQuery}
-        type="text"
-        placeholder={placeholder}
-      />
-      <SearchOutlinedIcon />
-    </StyledInputWithIcon>
+    <div>
+      <StyledInputWithIcon>
+        <input
+          onChange={handleSearchQuery}
+          type="text"
+          placeholder={placeholder}
+        />
+        <SearchOutlinedIcon />
+      </StyledInputWithIcon>
+      <DropdownMenu />
+    </div>
   );
 };

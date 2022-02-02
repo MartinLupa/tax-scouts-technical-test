@@ -9,6 +9,7 @@ const BookDetailsWrapper = styled.div`
   display: flex;
   max-width: 1200px;
   text-align: justify;
+
   img {
     padding: 40px;
     margin: 20px;

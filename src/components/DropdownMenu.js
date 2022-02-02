@@ -9,15 +9,16 @@ const DropdownWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: white;
-  overflow-y: scroll;
+  overflow: hidden;
+  overflow-y: auto;
   border: 1px solid lightgrey;
   border-radius: 3px;
   display: flex;
   margin: 5px;
   height: 350px;
   width: 322px;
-  ul {
-    padding: 0;
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 
@@ -27,20 +28,18 @@ export const DropdownMenu = () => {
     <div>
       {searchQuery ? (
         <DropdownWrapper>
-          <ul>
-            {bookList?.map((book) => (
-              <li key={book.isbn}>
-                <BookInfo
-                  uri={book["@uri"]}
-                  titleshort={book.titleshort}
-                  author={book.author}
-                  authorweb={book.authorweb}
-                  isbn={book.isbn}
-                  onsaledate={book.onsaledate}
-                />
-              </li>
-            ))}
-          </ul>
+          {bookList?.map((book) => (
+            <div key={book.isbn}>
+              <BookInfo
+                uri={book["@uri"]}
+                titleshort={book.titleshort}
+                author={book.author}
+                authorweb={book.authorweb}
+                isbn={book.isbn}
+                onsaledate={book.onsaledate}
+              />
+            </div>
+          ))}
         </DropdownWrapper>
       ) : null}
     </div>
