@@ -15,7 +15,7 @@ const DropdownWrapper = styled.div`
   border-radius: 3px;
   display: flex;
   margin: 5px;
-  height: 350px;
+  height: 50%;
   width: 320px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   &::-webkit-scrollbar {

@@ -49,6 +49,7 @@ function App() {
         <GlobalContext.Provider
           value={{
             bookList,
+            setBookList,
             searchQuery,
             setSearchQuery,
             currentBook,

@@ -21,7 +21,6 @@ const BookDetailsWrapper = styled.div`
 
 export const BookDetails = () => {
   const { currentBook } = useContext(GlobalContext);
-  console.log(currentBook);
 
   return (
     <div>
