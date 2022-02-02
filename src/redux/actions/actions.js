@@ -1,6 +1,12 @@
 import { currentBookTypes } from "../types/currentBookTypes";
+import { searchQueryTypes } from "../types/searchQueryTypes";
 
-export const currentBook = (data) => ({
+export const setCurrentBook = (data) => ({
   type: currentBookTypes.setCurrentBook,
   payload: { ...data },
+});
+
+export const setSearchQuery = (data) => ({
+  type: searchQueryTypes.setSearchQuery,
+  payload: data,
 });

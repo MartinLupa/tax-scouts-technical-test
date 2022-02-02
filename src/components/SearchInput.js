@@ -1,9 +1,9 @@
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { GlobalContext } from "../App";
 import { DropdownMenu } from "../components/DropdownMenu";
+import { setSearchQuery } from "../redux/actions/actions";
 
 const StyledInputWithIcon = styled.div`
   padding: 0px 10px;
@@ -32,14 +32,15 @@ const StyledInputWithIcon = styled.div`
 `;
 
 export const SearchInput = ({ placeholder }) => {
-  const { searchQuery, setSearchQuery } = useContext(GlobalContext);
+  const dispatch = useDispatch();
+  const searchQuery = useSelector((state) => state.searchQueryReducer);
 
   const handleSearchQuery = (e) => {
-    setSearchQuery(e.target.value);
+    dispatch(setSearchQuery(e.target.value));
   };
 
   const handleCloseDropdown = () => {
-    setSearchQuery("");
+    dispatch(setSearchQuery(""));
   };
 
   return (
@@ -52,7 +53,7 @@ export const SearchInput = ({ placeholder }) => {
           value={searchQuery}
         />
 
-        {searchQuery ? (
+        {searchQuery?.length > 0 ? (
           <CloseOutlinedIcon onClick={handleCloseDropdown} className="icon" />
         ) : (
           <SearchOutlinedIcon />

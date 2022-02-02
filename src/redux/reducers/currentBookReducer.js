@@ -1,10 +1,10 @@
 import { currentBookTypes } from "../types/currentBookTypes";
-const initialState = {};
+const initialState = { defined: false };
 
 export const currentBookReducer = (state = initialState, action) => {
   switch (action.type) {
     case currentBookTypes.setCurrentBook:
-      return action.payload;
+      return { defined: true, bookInfo: action.payload };
 
     default:
       return state;

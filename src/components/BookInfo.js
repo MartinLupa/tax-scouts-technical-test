@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { GlobalContext } from "../App";
-import { currentBook } from "../redux/actions/actions";
+import { setCurrentBook } from "../redux/actions/actions";
 
 const BookInfoWrapper = styled.div`
   display: flex;
@@ -37,7 +37,7 @@ export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
     const selectedBook = bookList.filter((book) => book.isbn === isbn);
     // setCurrentBook(...selectedBook)
 
-    dispatch(currentBook(...selectedBook));
+    dispatch(setCurrentBook(...selectedBook));
   };
 
   return (

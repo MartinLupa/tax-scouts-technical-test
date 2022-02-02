@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { GlobalContext } from "../App";
 import { BookInfo } from "./BookInfo";
@@ -24,7 +25,9 @@ const DropdownWrapper = styled.div`
 `;
 
 export const DropdownMenu = () => {
-  const { bookList, searchQuery } = useContext(GlobalContext);
+  const { bookList } = useContext(GlobalContext);
+  const searchQuery = useSelector((state) => state.searchQueryReducer);
+  console.log(searchQuery);
   return (
     <div>
       {searchQuery ? (

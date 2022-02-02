@@ -1,8 +1,9 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import thunk from "redux-thunk";
 import { currentBookReducer } from "./currentBookReducer";
+import { searchQueryReducer } from "./searchQueryReducer";
 
-const reducers = combineReducers({ currentBookReducer });
+const reducers = combineReducers({ currentBookReducer, searchQueryReducer });
 
 const composeEnhancers =
   (typeof window !== "undefined" &&

@@ -20,41 +20,44 @@ const BookDetailsWrapper = styled.div`
 `;
 
 export const BookDetails = () => {
-  // const { currentBook } = useContext(GlobalContext);
-  const currentBook = useSelector((state) => state.currentBookReducer);
+  const { defined, bookInfo } = useSelector(
+    (state) => state.currentBookReducer
+  );
 
   return (
     <div>
-      {currentBook.length !== 0 ? (
+      {defined ? (
         <BookDetailsWrapper>
-          <img src={currentBook["@uri"]} alt={currentBook?.titleshort} />
+          <img src={bookInfo["@uri"]} alt={bookInfo?.titleshort} />
           <div>
-            <h2>{currentBook?.titleshort}</h2>
+            <h2>{bookInfo?.titleshort}</h2>
             <p>
-              <b>Author:</b> {currentBook?.author}
+              <b>Author:</b> {bookInfo?.author}
             </p>
             <p>
-              {currentBook?.flapcopy
-                .substring(0, 1000)
-                .replace(/(<([^>]+)>)/gi, "") + "..."}
+              {bookInfo?.flapcopy?.length > 0
+                ? bookInfo.flapcopy
+                    .substring(0, 1000)
+                    .replace(/(<([^>]+)>)/gi, "") + "..."
+                : null}
             </p>
             <p>
-              <b>Format:</b> {currentBook?.formatname}
+              <b>Format:</b> {bookInfo?.formatname}
             </p>
             <p>
-              <b>Imprint:</b> {currentBook?.imprint}
+              <b>Imprint:</b> {bookInfo?.imprint}
             </p>
             <p>
-              <b>ISBN:</b> {currentBook?.isbn}
+              <b>ISBN:</b> {bookInfo?.isbn}
             </p>
             <p>
-              <b>Published:</b> {currentBook?.onsaledate}
+              <b>Published:</b> {bookInfo?.onsaledate}
             </p>
             <p>
-              <b>Length:</b> {currentBook?.pages} Pages
+              <b>Length:</b> {bookInfo?.pages} Pages
             </p>
             <p>
-              <b>Price:</b> EUR{currentBook?.priceusa}
+              <b>Price:</b> EUR{bookInfo?.priceusa}
             </p>
           </div>
         </BookDetailsWrapper>

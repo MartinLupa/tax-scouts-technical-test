@@ -1,11 +1,10 @@
 import { createContext, useEffect, useState } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { Provider } from "react-redux";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import "./App.css";
 import { Main } from "./components/Main";
 import { Navbar } from "./components/Navbar";
-import { store } from "./redux/reducers/store";
 
 const AppWrapper = styled.div`
   font-family: "Mulish", sans-serif;
@@ -27,7 +26,7 @@ function ErrorFallback({ error }) {
 
 function App() {
   const [bookList, setBookList] = useState();
-  const [searchQuery, setSearchQuery] = useState("");
+  const searchQuery = useSelector((state) => state.searchQueryReducer);
 
   useEffect(() => {
     if (searchQuery === "") {
@@ -46,21 +45,17 @@ function App() {
 
   return (
     <AppWrapper>
-      <Provider store={store}>
-        <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <GlobalContext.Provider
-            value={{
-              bookList,
-              setBookList,
-              searchQuery,
-              setSearchQuery,
-            }}
-          >
-            <Navbar />
-            <Main />
-          </GlobalContext.Provider>
-        </ErrorBoundary>
-      </Provider>
+      <ErrorBoundary FallbackComponent={ErrorFallback}>
+        <GlobalContext.Provider
+          value={{
+            bookList,
+            setBookList,
+          }}
+        >
+          <Navbar />
+          <Main />
+        </GlobalContext.Provider>
+      </ErrorBoundary>
     </AppWrapper>
   );
 }
