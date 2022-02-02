@@ -29,7 +29,6 @@ const BookInfoWrapper = styled.div`
 `;
 
 export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
-  // const { bookList } = useContext(GlobalContext);
   const bookList = useSelector((state) => state.bookListReducer);
   const dispatch = useDispatch();
 

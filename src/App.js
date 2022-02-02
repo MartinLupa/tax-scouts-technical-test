@@ -26,7 +26,6 @@ function ErrorFallback({ error }) {
 }
 
 function App() {
-  // const [bookList, setBookList] = useState();
   const searchQuery = useSelector((state) => state.searchQueryReducer);
   const dispatch = useDispatch();
 
@@ -48,15 +47,8 @@ function App() {
   return (
     <AppWrapper>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        {/* <GlobalContext.Provider
-          value={{
-            bookList,
-            setBookList,
-          }}
-        > */}
         <Navbar />
         <Main />
-        {/* </GlobalContext.Provider> */}
       </ErrorBoundary>
     </AppWrapper>
   );

@@ -24,7 +24,6 @@ const DropdownWrapper = styled.div`
 `;
 
 export const DropdownMenu = () => {
-  // const { bookList } = useContext(GlobalContext);
   const bookList = useSelector((state) => state.bookListReducer);
   const searchQuery = useSelector((state) => state.searchQueryReducer);
 
