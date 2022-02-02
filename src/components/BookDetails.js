@@ -25,7 +25,7 @@ export const BookDetails = () => {
 
   return (
     <div>
-      {currentBook ? (
+      {currentBook.length !== 0 ? (
         <BookDetailsWrapper>
           <img src={currentBook["@uri"]} alt={currentBook?.titleshort} />
           <div>
