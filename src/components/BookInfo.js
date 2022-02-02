@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { GlobalContext } from "../App";
 
@@ -29,13 +29,12 @@ const BookInfoWrapper = styled.div`
 
 export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
   const { bookList, setCurrentBook } = useContext(GlobalContext);
-  const [clickedIsbn, setClickedIsbn] = useState("");
 
   const handleBookDetail = (isbn) => {
-    setClickedIsbn(isbn);
-    const selectedBook = bookList.filter((book) => book.isbn === clickedIsbn);
-    setCurrentBook(selectedBook);
+    const selectedBook = bookList.filter((book) => book.isbn === isbn);
+    setCurrentBook(...selectedBook);
   };
+
   return (
     <BookInfoWrapper>
       <img onClick={() => handleBookDetail(isbn)} src={uri} alt={uri} />

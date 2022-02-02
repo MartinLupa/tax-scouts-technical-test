@@ -26,7 +26,7 @@ function ErrorFallback({ error }) {
 function App() {
   const [bookList, setBookList] = useState();
   const [searchQuery, setSearchQuery] = useState("");
-  const [currentBook, setCurrentBook] = useState({});
+  const [currentBook, setCurrentBook] = useState();
 
   useEffect(() => {
     if (searchQuery === "") {
