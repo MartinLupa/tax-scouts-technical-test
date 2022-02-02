@@ -32,8 +32,7 @@ const StyledInputWithIcon = styled.div`
 `;
 
 export const SearchInput = ({ placeholder }) => {
-  const { searchQuery, setSearchQuery, setBookList } =
-    useContext(GlobalContext);
+  const { searchQuery, setSearchQuery } = useContext(GlobalContext);
 
   const handleSearchQuery = (e) => {
     setSearchQuery(e.target.value);

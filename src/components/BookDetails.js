@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import { GlobalContext } from "../App";
 
 const BookDetailsWrapper = styled.div`
   display: flex;
@@ -20,7 +20,8 @@ const BookDetailsWrapper = styled.div`
 `;
 
 export const BookDetails = () => {
-  const { currentBook } = useContext(GlobalContext);
+  // const { currentBook } = useContext(GlobalContext);
+  const currentBook = useSelector((state) => state.currentBookReducer);
 
   return (
     <div>

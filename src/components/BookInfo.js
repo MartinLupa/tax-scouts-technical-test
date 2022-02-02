@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { GlobalContext } from "../App";
+import { currentBook } from "../redux/actions/actions";
 
 const BookInfoWrapper = styled.div`
   display: flex;
@@ -28,11 +30,14 @@ const BookInfoWrapper = styled.div`
 `;
 
 export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
-  const { bookList, setCurrentBook } = useContext(GlobalContext);
+  const { bookList } = useContext(GlobalContext);
+  const dispatch = useDispatch();
 
   const handleBookDetail = (isbn) => {
     const selectedBook = bookList.filter((book) => book.isbn === isbn);
-    setCurrentBook(...selectedBook);
+    // setCurrentBook(...selectedBook)
+
+    dispatch(currentBook(...selectedBook));
   };
 
   return (
