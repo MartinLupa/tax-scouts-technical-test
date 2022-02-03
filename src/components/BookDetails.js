@@ -81,7 +81,7 @@ export const BookDetails = () => {
             <a
               target="_blank"
               rel="noopener noreferrer"
-              href={`https://www.amazon.es/s?k=${bookInfo.titleshort.replaceAll(
+              href={`https://www.amazon.es/s?k=${bookInfo?.titleshort.replaceAll(
                 " ",
                 "+"
               )}`}

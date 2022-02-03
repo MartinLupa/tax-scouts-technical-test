@@ -24,7 +24,7 @@ const DropdownWrapper = styled.div`
 `;
 
 export const DropdownMenu = () => {
-  const bookList = useSelector((state) => state.bookListReducer);
+  const bookList = useSelector((state) => state.bookListReducer.bookList);
   const searchQuery = useSelector((state) => state.searchQueryReducer);
 
   return (

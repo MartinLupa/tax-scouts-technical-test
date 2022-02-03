@@ -29,12 +29,11 @@ const BookInfoWrapper = styled.div`
 `;
 
 export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
-  const bookList = useSelector((state) => state.bookListReducer);
+  const bookList = useSelector((state) => state.bookListReducer.bookList);
   const dispatch = useDispatch();
 
   const handleBookDetail = (isbn) => {
     const selectedBook = bookList.filter((book) => book.isbn === isbn);
-
     dispatch(setCurrentBook(...selectedBook));
   };
 

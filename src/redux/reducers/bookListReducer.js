@@ -1,10 +1,10 @@
 import { bookListTypes } from "../types/bookListTypes";
-const initialState = [];
+const initialState = { bookListDefined: false, bookList: [] };
 
 export const bookListReducer = (state = initialState, action) => {
   switch (action.type) {
     case bookListTypes.setBookList:
-      return action.payload;
+      return { bookListDefined: true, bookList: action.payload };
 
     default:
       return state;
