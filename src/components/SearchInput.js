@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { DropdownMenu } from "../components/DropdownMenu";
 import { setSearchQuery } from "../redux/actions/actions";
-import { device } from "../styles/device-queries";
 
 const StyledInputWithIcon = styled.div`
   padding: 0px 10px;
@@ -31,10 +30,6 @@ const StyledInputWithIcon = styled.div`
   .icon:hover {
     cursor: pointer;
   }
-  @media ${device.mobile} {
-   input {
-     height: 100%;
-   }
 `;
 
 export const SearchInput = ({ placeholder }) => {
