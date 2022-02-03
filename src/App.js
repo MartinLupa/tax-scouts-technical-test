@@ -43,7 +43,7 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => dispatch(setBookList(data.title)));
-  }, [searchQuery]);
+  }, [searchQuery, APISearchQuery, dispatch]);
 
   return (
     <AppWrapper>
