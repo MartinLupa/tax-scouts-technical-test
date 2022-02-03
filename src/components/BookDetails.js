@@ -11,6 +11,8 @@ const BookDetailsWrapper = styled.div`
   text-align: justify;
 
   img {
+    height: 500px;
+    width: 400px;
     padding: 40px;
     margin: 20px;
     border-radius: 5px;
@@ -59,6 +61,7 @@ export const BookDetails = () => {
             <p>
               <b>Price:</b> EUR{bookInfo?.priceusa}
             </p>
+            {/* <a href={}>Check it on Amazon</a> */}
           </div>
         </BookDetailsWrapper>
       ) : (
@@ -69,3 +72,6 @@ export const BookDetails = () => {
     </div>
   );
 };
+
+// https://www.amazon.es/s?k=How+Civil+Wars+Start
+// https://www.amazon.es/s?k=influence+is+your+superpower
