@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { device } from "../styles/device-queries";
 
 const BookDetailsWrapper = styled.div`
   display: flex;
@@ -9,7 +10,6 @@ const BookDetailsWrapper = styled.div`
   display: flex;
   max-width: 1200px;
   text-align: justify;
-
   img {
     height: 500px;
     width: 400px;
@@ -19,12 +19,29 @@ const BookDetailsWrapper = styled.div`
     border: 1px solid black;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   }
+  a {
+    text-decoration: none;
+  }
+  @media ${device.laptop} {
+    flex-direction: column;
+  }
+  @media ${device.mobile} {
+    img {
+      width: 100%;
+      height: auto;
+      padding: 5px;
+      margin: 5px;
+    }
+  }
 `;
 
 export const BookDetails = () => {
   const { defined, bookInfo } = useSelector(
     (state) => state.currentBookReducer
   );
+
+  // Amazon search example
+  // https://www.amazon.es/s?k=influence+is+your+superpower
 
   return (
     <div>
@@ -61,7 +78,16 @@ export const BookDetails = () => {
             <p>
               <b>Price:</b> EUR{bookInfo?.priceusa}
             </p>
-            {/* <a href={}>Check it on Amazon</a> */}
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href={`https://www.amazon.es/s?k=${bookInfo.titleshort.replaceAll(
+                " ",
+                "+"
+              )}`}
+            >
+              Check it on Amazon
+            </a>
           </div>
         </BookDetailsWrapper>
       ) : (
@@ -72,6 +98,3 @@ export const BookDetails = () => {
     </div>
   );
 };
-
-// https://www.amazon.es/s?k=How+Civil+Wars+Start
-// https://www.amazon.es/s?k=influence+is+your+superpower

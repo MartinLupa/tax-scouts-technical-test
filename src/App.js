@@ -27,7 +27,7 @@ function ErrorFallback({ error }) {
 
 function App() {
   const searchQuery = useSelector((state) => state.searchQueryReducer);
-  const transformedSearchQuery = searchQuery.replace(" ", "%");
+  const APISearchQuery = searchQuery.replace(" ", "%");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,8 +35,7 @@ function App() {
       setBookList([]);
     }
     fetch(
-      // "https://reststop.randomhouse.com/resources/titles?search=Grisham%Christmas",
-      `https://reststop.randomhouse.com/resources/titles?search=${transformedSearchQuery}`,
+      `https://reststop.randomhouse.com/resources/titles?search=${APISearchQuery}`,
       {
         method: "GET",
         headers: { Accept: "application/json" },
@@ -44,7 +43,6 @@ function App() {
     )
       .then((response) => response.json())
       .then((data) => dispatch(setBookList(data.title)));
-    // .then((data) => console.log(data));
   }, [searchQuery]);
 
   return (

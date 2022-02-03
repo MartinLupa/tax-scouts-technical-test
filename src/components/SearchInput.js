@@ -1,5 +1,6 @@
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { DropdownMenu } from "../components/DropdownMenu";
@@ -43,8 +44,10 @@ export const SearchInput = ({ placeholder }) => {
     dispatch(setSearchQuery(""));
   };
 
+  useEffect(() => {}, []);
+
   return (
-    <div>
+    <div id="search-bar">
       <StyledInputWithIcon>
         <input
           onChange={handleSearchQuery}
