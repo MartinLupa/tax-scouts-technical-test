@@ -14,6 +14,7 @@ const StyledLogin = styled.div`
   }
   form {
     background-color: #a6f2d3;
+    margin: 5px;
     padding: 40px 20px;
     display: flex;
     flex-direction: column;
