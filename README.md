@@ -26,8 +26,8 @@ Tested with Node v14.16.1 and npm 6.14.12.
 
 ### Front-end | REACT
 
-- useState, useEffect, useRef.
-- Custom hooks: useDebounce, useFetch.
+- useState, useEffect, useRef (dropdown close on click outside).
+- Custom hooks: useDebounce (fetch trigger control), useFetch.
 - React Router v6 | Public router and Private router.
 - Protected routes.
 - Use of third party APIs: Penguin Random House.
