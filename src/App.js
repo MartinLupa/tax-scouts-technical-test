@@ -27,25 +27,6 @@ function ErrorFallback({ error }) {
 }
 
 function App() {
-  const searchQuery = useSelector((state) => state.searchQueryReducer);
-  const APISearchQuery = searchQuery.replace(" ", "%");
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (searchQuery === "") {
-      setBookList([]);
-    }
-    fetch(
-      `https://reststop.randomhouse.com/resources/titles?search=${APISearchQuery}`,
-      {
-        method: "GET",
-        headers: { Accept: "application/json" },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => dispatch(setBookList(data.title)));
-  }, [searchQuery, APISearchQuery, dispatch]);
-
   return (
     <AppWrapper>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
