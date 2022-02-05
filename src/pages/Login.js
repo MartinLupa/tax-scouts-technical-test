@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { setLoggedUser } from "../redux/actions/actions";
@@ -13,14 +13,17 @@ const StyledLogin = styled.div`
     margin-top: 0;
   }
   form {
-    ${"" /* background-color: #a6f2d3; */}
-    padding: 20px;
+    background-color: #a6f2d3;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
     border-radius: 5px;
     border: 1px solid lightgrey;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    label {
+      margin-top: 10px;
+    }
     input {
       padding-left: 5px;
       height: 40px;
@@ -71,7 +74,7 @@ export const Login = () => {
     <StyledLogin>
       <form onSubmit={handleLogin} className="login-form" action="">
         <p>Please use any email valid format + password to Log in</p>
-        <label htmlFor="email">Email: </label>
+        <label htmlFor="email">Email:</label>
         <input
           id="email"
           type="email"
