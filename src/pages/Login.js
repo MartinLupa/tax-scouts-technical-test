@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { setLoggedUser } from "../redux/actions/actions";
 
 const StyledLogin = styled.div`
-  height: 100vh;
+  height: 94vh;
   display: flex;
   justify-content: center;
   align-items: center;
