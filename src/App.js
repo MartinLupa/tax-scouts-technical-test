@@ -6,6 +6,7 @@ import "./App.css";
 import { Main } from "./components/Main";
 import { Navbar } from "./components/Navbar";
 import { setBookList } from "./redux/actions/actions";
+import { Router } from "./router/Router";
 
 const AppWrapper = styled.div`
   font-family: "Mulish", sans-serif;
@@ -48,8 +49,7 @@ function App() {
   return (
     <AppWrapper>
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Navbar />
-        <Main />
+        <Router />
       </ErrorBoundary>
     </AppWrapper>
   );

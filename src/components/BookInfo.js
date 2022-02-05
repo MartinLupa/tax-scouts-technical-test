@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { setCurrentBook } from "../redux/actions/actions";
 
@@ -31,10 +32,12 @@ const BookInfoWrapper = styled.div`
 export const BookInfo = ({ uri, isbn, titleshort, author, onsaledate }) => {
   const bookList = useSelector((state) => state.bookListReducer.bookList);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleBookDetail = (isbn) => {
     const selectedBook = bookList.filter((book) => book.isbn === isbn);
     dispatch(setCurrentBook(...selectedBook));
+    navigate(`/books/${isbn}`);
   };
 
   return (

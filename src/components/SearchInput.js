@@ -44,8 +44,6 @@ export const SearchInput = ({ placeholder }) => {
     dispatch(setSearchQuery(""));
   };
 
-  useEffect(() => {}, []);
-
   return (
     <div id="search-bar">
       <StyledInputWithIcon>
