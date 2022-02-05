@@ -3,6 +3,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { DropdownMenu } from "../components/DropdownMenu";
+import useDebounce from "../hooks/useDebounce";
 import useFetchBooks from "../hooks/useFetchBooks";
 import { setBookList, setSearchQuery } from "../redux/actions/actions";
 
@@ -45,8 +46,11 @@ export const SearchInput = ({ placeholder }) => {
     dispatch(setSearchQuery(""));
   };
 
+  const debouncedSearchQuery = useDebounce(APISearchQuery, 300);
+  console.log(debouncedSearchQuery);
+
   useFetchBooks(
-    APISearchQuery,
+    debouncedSearchQuery,
     `https://reststop.randomhouse.com/resources/titles?search=${APISearchQuery}`,
     setBookList
   );

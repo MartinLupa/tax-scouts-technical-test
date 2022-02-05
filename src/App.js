@@ -1,11 +1,7 @@
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import "./App.css";
-import { Main } from "./components/Main";
-import { Navbar } from "./components/Navbar";
-import { setBookList } from "./redux/actions/actions";
 import { Router } from "./router/Router";
 
 const AppWrapper = styled.div`

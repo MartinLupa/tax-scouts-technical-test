@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-export default function useFetchBooks(searchQuery, url, action) {
+export default function useFetchBooks(debouncedSearchQuery, url, action) {
+  console.log("I am fetching");
   const dispatch = useDispatch();
   return useEffect(() => {
-    if (searchQuery === "") {
+    if (debouncedSearchQuery === "") {
       action([]);
     }
     fetch(url, {
@@ -13,5 +14,5 @@ export default function useFetchBooks(searchQuery, url, action) {
     })
       .then((response) => response.json())
       .then((data) => dispatch(action(data.title)));
-  }, [searchQuery, url, action]);
+  }, [debouncedSearchQuery]);
 }
