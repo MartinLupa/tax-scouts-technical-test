@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { setLoggedUser } from "../redux/actions/actions";
 
 const StyledLogin = styled.div`
   height: 100vh;
@@ -49,7 +51,7 @@ const formInitialState = { email: "", password: "" };
 
 export const Login = () => {
   const [loginForm, setLoginForm] = useState(formInitialState);
-  const { setUser } = "hola";
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -60,9 +62,9 @@ export const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setUser({ ...loginForm, isLogged: true });
+    dispatch(setLoggedUser(loginForm));
     setLoginForm(formInitialState);
-    navigate("/contacts");
+    navigate("/books");
   };
 
   return (
