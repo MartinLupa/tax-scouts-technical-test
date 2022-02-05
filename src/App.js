@@ -1,10 +1,12 @@
 import { ErrorBoundary } from "react-error-boundary";
 import styled, { createGlobalStyle } from "styled-components";
-import { Router } from "./router/Router";
+import { PublicRouter } from "./routers/PublicRouter";
 
 const GlobalStyle = createGlobalStyle`
 body {
   margin: 0;
+  height: 100vh;
+  width: 100%;
 }`;
 
 const AppWrapper = styled.div`
@@ -29,7 +31,7 @@ function App() {
       <GlobalStyle />
       <AppWrapper>
         <ErrorBoundary FallbackComponent={ErrorFallback}>
-          <Router />
+          <PublicRouter />
         </ErrorBoundary>
       </AppWrapper>
     </>
