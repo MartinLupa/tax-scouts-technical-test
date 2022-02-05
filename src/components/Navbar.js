@@ -14,7 +14,7 @@ const StyledNavbar = styled.nav`
 export const Navbar = () => {
   return (
     <StyledNavbar>
-      <SearchInput placeholder={"Search by book title.."} />
+      <SearchInput placeholder={"Search by title or author.."} />
     </StyledNavbar>
   );
 };
