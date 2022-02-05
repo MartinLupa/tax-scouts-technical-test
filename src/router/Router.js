@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { BookDetails } from "../components/BookDetails";
-import { Main } from "../components/Main";
 import { Navbar } from "../components/Navbar";
+import { Main } from "../pages/Main";
 
 export const Router = () => {
   return (
