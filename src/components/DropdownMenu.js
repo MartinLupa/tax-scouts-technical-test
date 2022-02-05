@@ -1,6 +1,7 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { setSearchQuery } from "../redux/actions/actions";
 import { BookInfo } from "./BookInfo";
 
 const DropdownWrapper = styled.div`
@@ -24,13 +25,27 @@ const DropdownWrapper = styled.div`
 `;
 
 export const DropdownMenu = () => {
+  const dispatch = useDispatch();
   const bookList = useSelector((state) => state.bookListReducer.bookList);
   const searchQuery = useSelector((state) => state.searchQueryReducer);
+  let dropdownRef = useRef();
+
+  useEffect(() => {
+    let handler = (event) => {
+      if (!dropdownRef.current.contains(event.target)) {
+        dispatch(setSearchQuery(""));
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => {
+      document.removeEventListener("mousedown", handler);
+    };
+  }, []);
 
   return (
     <div>
       {searchQuery ? (
-        <DropdownWrapper>
+        <DropdownWrapper ref={dropdownRef}>
           {bookList?.map((book) => (
             <div key={book.isbn}>
               <BookInfo
