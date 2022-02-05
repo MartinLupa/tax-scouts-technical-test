@@ -1,8 +1,11 @@
-import { createContext } from "react";
 import { ErrorBoundary } from "react-error-boundary";
-import styled from "styled-components";
-import "./App.css";
+import styled, { createGlobalStyle } from "styled-components";
 import { Router } from "./router/Router";
+
+const GlobalStyle = createGlobalStyle`
+body {
+  margin: 0;
+}`;
 
 const AppWrapper = styled.div`
   font-family: "Mulish", sans-serif;
@@ -10,8 +13,6 @@ const AppWrapper = styled.div`
   padding: 0;
   min-height: 100vh;
 `;
-
-export const GlobalContext = createContext();
 
 function ErrorFallback({ error }) {
   return (
@@ -24,11 +25,14 @@ function ErrorFallback({ error }) {
 
 function App() {
   return (
-    <AppWrapper>
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Router />
-      </ErrorBoundary>
-    </AppWrapper>
+    <>
+      <GlobalStyle />
+      <AppWrapper>
+        <ErrorBoundary FallbackComponent={ErrorFallback}>
+          <Router />
+        </ErrorBoundary>
+      </AppWrapper>
+    </>
   );
 }
 

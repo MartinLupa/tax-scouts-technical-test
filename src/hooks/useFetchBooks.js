@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 export default function useFetchBooks(debouncedSearchQuery, url, action) {
-  console.log("I am fetching");
   const dispatch = useDispatch();
   return useEffect(() => {
     if (debouncedSearchQuery === "") {

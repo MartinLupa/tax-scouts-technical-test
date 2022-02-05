@@ -47,7 +47,6 @@ export const SearchInput = ({ placeholder }) => {
   };
 
   const debouncedSearchQuery = useDebounce(APISearchQuery, 300);
-  console.log(debouncedSearchQuery);
 
   useFetchBooks(
     debouncedSearchQuery,
