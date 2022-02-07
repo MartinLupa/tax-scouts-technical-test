@@ -82,6 +82,7 @@ export const Login = () => {
           required="required"
           onChange={handleInputChange}
           placeholder="Insert your email"
+          value={"email@email.com"}
         />
 
         <label htmlFor="password">Password</label>
@@ -91,6 +92,7 @@ export const Login = () => {
           required="required"
           onChange={handleInputChange}
           placeholder="Insert your password"
+          value={"password"}
         />
 
         <button className="btn-success" type="submit">
