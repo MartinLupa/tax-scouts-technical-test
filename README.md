@@ -1,6 +1,6 @@
 # TaxScouts technical test | Book search App
 
-Deploy: https://vercel.com/martinlupa/tax-scouts-technical-test
+Deploy: https://tax-scouts-technical-test.vercel.app/
 
 Author: Martin I. Lupa Groppelli, February 2022.
 
